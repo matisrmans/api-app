@@ -25,16 +25,18 @@ class PostController extends Controller
         return 'Post created successfully';
     }
 
-    public function destroy($id){
-        Post::destroy($id);
+    public function destroy(Request $request){
+        $id = $request->input('id');
+        Post::destroy($id); 
         return 'Post deleted successfully';
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request){
         $request->validate([
             'title' => 'required|string',
             'body' => 'required|string',
         ]);
+        $id = $request->input('id');
         $title = $request->input('title');
         $body = $request->input('body');
         Post::where('id', $id)->update([

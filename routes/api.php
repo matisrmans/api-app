@@ -12,5 +12,7 @@ Route::get('/index', [PostController::class, 'index']);
 
 Route::post('/add', [PostController::class, 'add']);
 
-Route::delete('/delete/{id}', [PostController::class, 'destroy']);
+Route::delete('/delete', [PostController::class, 'destroy']);
+
+Route::Put('/update', [PostController::class, 'update']);
 
